@@ -31,11 +31,16 @@ class User < ApplicationRecord
   
   has_many :follower, through: "Follower", source: "status"
 
-  def follows
-    followers = Follower.where(:id => sender_id).where(:status => "accepted").count
+  def follower
+    followers = Follower.where(:id => :sender_id).where(:status => "accepted")
+    if followers == 0
+      return "0"
+    else
+      return followers
+    end
   end
 
   def pending 
-    pending_follows = Follower.where(:id => sender_id).where(:status => "pending").count
+    pending_follows = Follower.where(:id => :sender_id).where(:status => "pending").count
   end
 end
