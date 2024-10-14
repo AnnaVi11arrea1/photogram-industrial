@@ -1,3 +1,17 @@
+  <div class="card" style="width: 18rem;">
+    <img src="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" class="card-img-top" alt="...">
+  
+    <div>
+      <div><%= current_user.username %></div>
+    </div>
+
+    <div class="card-body">
+      <p class="card-text"><%= current_user.followers.count %></p>
+    </div>
+
+  </div>
+
+
 <% @photos.each do |post| %>
   <div class="card" style="width: 18rem;">
     <img src="<%= post.image %>" class="card-img-top" alt="...">
