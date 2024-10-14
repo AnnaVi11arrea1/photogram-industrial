@@ -41,6 +41,20 @@ class User < ApplicationRecord
   end
 
   def pending 
-    pending_follows = Follower.where(:id => :sender_id).where(:status => "pending").count
+    pending_follows = Follower.where(:id => :sender_id).where(:status => "pending")
+    if pending_follows == 0
+      return "0"
+    else
+      return pending_follows
+    end
+  end
+
+  def following
+    following = Follower.where(:id => :receiver_id).where(:status => "accepted")
+    if following == 0
+      return "0"
+    else
+      return following
+    end
   end
 end
