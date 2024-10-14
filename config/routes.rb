@@ -12,16 +12,16 @@ Rails.application.routes.draw do
   post "/users/sign_up", controller: "users", action: "create"
 
   get "/users/sign_out", controller: "users", action: "sign_out"
+  delete "/users/sign_out", controller: "users", action: "goodbye_session"
+
+  get "/users/:id", controller: "users", action: "index"
+  get "/users/edit", controller: "users", action: "edit"
+  patch "/users/edit", controller: "users", action: "update"
+  delete "/users/delete", controller: "users", action: "destroy"
 
   get "/users/feed", controller: "users", action: "feed"
 
   get "users/discover", controller: "users", action: "discover"
 
   get "/users/profile", controller: "users", action: "show"
-
-  get "/users/edit", controller: "users", action: "edit"
-  patch "/users/edit", controller: "users", action: "update"
-  delete "/users/delete", controller: "users", action: "destroy"
-
-
 end

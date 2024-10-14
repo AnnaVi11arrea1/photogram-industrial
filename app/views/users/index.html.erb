@@ -1,0 +1,8 @@
+<% @photos.each do |post| %>
+  <div class="card" style="width: 18rem;">
+    <img src="<%= post.image %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text"><%= post.caption %></p>
+    </div>
+  </div>
+<% end %>

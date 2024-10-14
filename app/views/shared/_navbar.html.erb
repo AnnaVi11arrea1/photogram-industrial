@@ -27,7 +27,7 @@
           <%= @user %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/users/sign_out">Sign out</a>
+            <a class="dropdown-item" href="<%= destroy_user_session_path %>">Sign out</a>
             <a class="dropdown-item" href="/users/edit">Edit Profile</a>
           <% else %>
             <a class="dropdown-item" href="/users/sign_up">Sign up</a>
