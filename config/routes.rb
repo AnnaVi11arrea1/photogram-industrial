@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/users/sign_up", controller: "users", action: "new"
   post "/users/sign_up", controller: "users", action: "create"
 
+  get "/users/sign_out", controller: "users", action: "sign_out"
+
   get "/users/feed", controller: "users", action: "feed"
 
   get "users/discover", controller: "users", action: "discover"
