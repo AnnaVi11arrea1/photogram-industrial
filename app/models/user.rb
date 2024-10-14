@@ -29,5 +29,13 @@ class User < ApplicationRecord
 
   has_many :photos, class_name: "Photo", foreign_key: "owner_id"
   
-  # has_many :followers, through: "Photo", source: "likes_count"
+  has_many :follower, through: "Follower", source: "status"
+
+  def follows
+    followers = Follower.where(:id => sender_id).where(:status => "accepted").count
+  end
+
+  def pending 
+    pending_follows = Follower.where(:id => sender_id).where(:status => "pending").count
+  end
 end

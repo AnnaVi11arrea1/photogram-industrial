@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :followers
   resources :photos
   devise_for :users
   devise_for :usernames
