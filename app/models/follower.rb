@@ -15,6 +15,6 @@ class Follower < ApplicationRecord
 
   validates :sender, class_name: "User", foreign_key: "sender_id"
 
-  after_create :send_notification
+  enum status { pending: "pending", accepted: "accepted", rejected: "rejected"}
 
 end
