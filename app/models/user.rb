@@ -30,9 +30,14 @@ class User < ApplicationRecord
 
   has_many :photos, class_name: "Photo", foreign_key: "owner_id"
   
-  has_many :follower, through: "Follower", source: "status"
+  has_many :sent_follow_requests, foreign_key: "sender_id", class_name: "Follower"
+  has_many :received_follow_requests, foreign_key: "recipient_id", class_name: "Follower"
 
   has_many :comments, foreign_key: "author_id"
+
+  has_many :likes, foreign_key: "fan_id"
+
+  has_many :own_photos, foreign_key: "owner_id", class_name: "Photo"
 
   def follower
     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
