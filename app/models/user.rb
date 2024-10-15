@@ -8,7 +8,7 @@
 #  encrypted_password     :string           default(""), not null
 #  likes_count            :integer          default(0)
 #  photos_count           :integer          default(0)
-#  private                :boolean
+#  private                :boolean          default(TRUE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -54,30 +54,32 @@ class User < ApplicationRecord
 
   has_many :discover, through: :leaders, source: :liked_photos
 
-  def follower
-    followers = Follower.where(:id => :sender_id).where(:status => "accepted")
-    if followers == 0
-      return "0"
-    else
-      return followers
-    end
-  end
+  validates :username, presence: true, uniqueness: true
 
-  def pending 
-    pending_follows = Follower.where(:id => :sender_id).where(:status => "pending")
-    if pending_follows == 0
-      return "0"
-    else
-      return pending_follows
-    end
-  end
+#   def follower
+#     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
+#     if followers == 0
+#       return "0"
+#     else
+#       return followers
+#     end
+#   end
 
-  def following
-    following = Follower.where(:id => :receiver_id).where(:status => "accepted")
-    if following == 0
-      return "0"
-    else
-      return following
-    end
-  end
+#   def pending 
+#     pending_follows = Follower.where(:id => :sender_id).where(:status => "pending")
+#     if pending_follows == 0
+#       return "0"
+#     else
+#       return pending_follows
+#     end
+#   end
+
+#   def following
+#     following = Follower.where(:id => :receiver_id).where(:status => "accepted")
+#     if following == 0
+#       return "0"
+#     else
+#       return following
+#     end
+#   end
 end

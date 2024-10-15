@@ -3,7 +3,7 @@
 # Table name: followers
 #
 #  id           :bigint           not null, primary key
-#  status       :string
+#  status       :string           default("pending")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  recepient_id :integer
