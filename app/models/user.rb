@@ -36,6 +36,10 @@ class User < ApplicationRecord
 
   has_many :received_follow_requests, foreign_key: "recipient_id", class_name: "Follower"
 
+  has_many :accepted_sent_follow_requests, -> { where(status: "accepted") }, foreign_key: "sender_id", class_name: "Follower"
+
+  has_many :accepted_received_follow_requests, -> { where(status: "accepted") }, foreign_key: "recipient_id", class_name: "Follower"
+
   has_many :comments, foreign_key: "author_id"
 
   has_many :likes, foreign_key: "fan_id"
@@ -43,6 +47,8 @@ class User < ApplicationRecord
   has_many :own_photos, foreign_key: "owner_id", class_name: "Photo"
 
   has_many :leaders, through: :sent_follow_requests, source: :recipient
+
+  has_many :followers, through: :accepted_received_follow_requests, source: :sender
 
   def follower
     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
