@@ -31,6 +31,8 @@ class User < ApplicationRecord
   
   has_many :follower, through: "Follower", source: "status"
 
+  has_many :comments, foreign_key: "author_id"
+
   def follower
     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
     if followers == 0
