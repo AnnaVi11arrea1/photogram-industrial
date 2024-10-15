@@ -50,6 +50,10 @@ class User < ApplicationRecord
 
   has_many :followers, through: :accepted_received_follow_requests, source: :sender
 
+  has_many :feed, through: :leaders, source: :own_photos
+
+  has_many :discover, through: :leaders, source: :liked_photos
+
   def follower
     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
     if followers == 0
