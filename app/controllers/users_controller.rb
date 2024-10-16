@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     render "users/index"
   end
 
+  def show
+    @user = User.find_by(username: params.fetch(:username))
+  end
+
   def create
     @user = User.new(user_params)
 
