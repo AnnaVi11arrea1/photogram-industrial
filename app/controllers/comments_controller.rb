@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/1 or /comments/1.json
   def show
+    @user = User.find_by!(username: params.fetch(:username))
   end
+
 
   # GET /comments/new
   def new
