@@ -1,25 +1,20 @@
 class FollowersController < ApplicationController
   before_action :set_follower, only: %i[ show edit update destroy ]
 
-  # GET /followers or /followers.json
   def index
     @followers = Follower.all
   end
 
-  # GET /followers/1 or /followers/1.json
   def show
   end
 
-  # GET /followers/new
   def new
     @follower = Follower.new
   end
 
-  # GET /followers/1/edit
   def edit
   end
 
-  # POST /followers or /followers.json
   def create
     @follower = Follower.new(follower_params)
 
@@ -34,7 +29,6 @@ class FollowersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /followers/1 or /followers/1.json
   def update
     respond_to do |format|
       if @follower.update(follower_params)
@@ -47,7 +41,6 @@ class FollowersController < ApplicationController
     end
   end
 
-  # DELETE /followers/1 or /followers/1.json
   def destroy
     @follower.destroy!
 
@@ -58,12 +51,10 @@ class FollowersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_follower
       @follower = Follower.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def follower_params
       params.require(:follower).permit(:sender_id, :recepient_id, :status)
     end

@@ -54,32 +54,6 @@ class User < ApplicationRecord
 
   has_many :discover, through: :leaders, source: :liked_photos
 
-  # validates :username, presence: true, uniqueness: true
 
-#   def follower
-#     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
-#     if followers == 0
-#       return "0"
-#     else
-#       return followers
-#     end
-#   end
 
-#   def pending 
-#     pending_follows = Follower.where(:id => :sender_id).where(:status => "pending")
-#     if pending_follows == 0
-#       return "0"
-#     else
-#       return pending_follows
-#     end
-#   end
-
-#   def following
-#     following = Follower.where(:id => :receiver_id).where(:status => "accepted")
-#     if following == 0
-#       return "0"
-#     else
-#       return following
-#     end
-#   end
 end
