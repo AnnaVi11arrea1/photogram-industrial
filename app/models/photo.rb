@@ -21,8 +21,8 @@
 #
 class Photo < ApplicationRecord
 
-  validates :caption, presenece: true
-  validates :image, presence: true
+  # validates :caption, presenece: true
+  # validates :image, presence: true
 
   belongs_to :owner, class_name: "User", counter_cache: true
   has_many :comments 

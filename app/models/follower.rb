@@ -11,10 +11,9 @@
 #
 class Follower < ApplicationRecord
 
-  belongs_to :recepient, class_name: 'User' , foreign_key: 'recepient_id'
+  belongs_to :recepient, class_name: "User"
+  belongs_to :sender, class_name: "User"
 
-  validates :sender, class_name: "User", foreign_key: "sender_id"
-
-  enum status { pending: "pending", accepted: "accepted", rejected: "rejected"}
+  enum status: { pending: "pending", rejected: "rejected", accepted: "accepted" } 
 
 end

@@ -1,7 +1,6 @@
 desc "Fill the database tables with some sample data"
-task({ :sample_data => :environment }) do
+task sample_data: :environment do
   p "Creating sample data"
-
 
   if Rails.env.development?
     Follower.destroy_all
@@ -13,32 +12,30 @@ task({ :sample_data => :environment }) do
 
   12.times do
     name = Faker::Name.first_name
-    u = User.create(
+    User.create(
       email: "#{name}@example.com",
       password: "password",
-      username: name,
-      private: [true, false].sample.
+      username: name.downcase,
+      private: [true, false].sample,
     )
-
-    p u.errors.full_messages
   end
 
-  p "There are now #{User.count} users."
+  users = User.all
   
   users.each do |first_user|
     users.each do |second_user|
       next if first_user == second_user
       if rand < 0.75
         first_user.sent_follow_requests.create(
-          recipient: second_user,
-          status: Follow.statuses.keys.sample
+          recepient: second_user,
+          status: Follower.statuses.values.sample
         )
       end
 
       if rand < 0.75
         second_user.sent_follow_requests.create(
-          recipient: first_user,
-          status: Follow.statuses.keys.sample
+          recepient: first_user,
+          status: Follower.statuses.values.sample
         )
       end
     end
@@ -66,7 +63,7 @@ task({ :sample_data => :environment }) do
     end
   end
   p "There are now #{User.count} follows requestion."
-  p "There are now #{Follow.count} follows requestion."
+  p "There are now #{Follower.count} follows requestion."
   p "There are now #{Photo.count} follows requestion."
   p "There are now #{Like.count} follows requestion."
   p "There are now #{Comment.count} follows requestion."
