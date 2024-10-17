@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find_by!(username: params.fetch(:username))
   end
 
-  def liked
+  def likes
     @user = User.find_by!(username: params.fetch(:username))
     
   end
