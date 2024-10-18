@@ -1,1 +1,36 @@
-<h1>iskdfhj</h1>
+<div class="row mb-4">
+
+  <div class="col-md-6 offset-md-3">
+    <div class="card-body">
+      <div class="card">
+        <% @user.liked_photos.each do |follower| %>
+          <div>
+            <h5><%= follower.owner.username %></h5>
+            <%= image_tag follower.image, class: "card-img-top"%>
+          </div>
+          <div>
+            <%= follower.caption %>
+            <br>
+            <%= follower.comments.each do |comment| %>
+              <%= comment.id %>
+              <%= comment.body %>
+            <% end %>
+
+            <%= form_with(model: follower) do |form| %>
+              <div class="card">
+                <%= form.label :body, style: "display: block"  %>
+                <%= form.text_area :body %>
+              </div>
+              <div class="card">
+                <%= form.submit %>
+              </div>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
