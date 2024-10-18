@@ -46,7 +46,7 @@ class User < ApplicationRecord
 
   has_many :leaders, through: :sent_follow_requests, source: :recepient
 
-  has_many :followers, through: :accepted_received_follow_requests, source: :sender
+  has_many :follow_requests, through: :accepted_received_follow_requests, source: :sender
 
   has_many :liked_photos, through: :likes, source: :photo
 

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :comments
   resources :follow_requests
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ed7cb13 (changed followers to follow request, fixed routes)
   resources :likes
   resources :photos
   
@@ -19,10 +22,14 @@ Rails.application.routes.draw do
   get "/:username/liked" => "users#likes", as: :liked
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   get "/:username/followers" => "users#followers", as: :followers
 =======
   get "/:username/followers" => "users#followers"
 >>>>>>> 2cdf639 (fixing routes)
+=======
+  get "/:username/followers" => "users#followers", as: :followers
+>>>>>>> ed7cb13 (changed followers to follow request, fixed routes)
   
   get "/:username/following" => "users#following", as: :following
   
