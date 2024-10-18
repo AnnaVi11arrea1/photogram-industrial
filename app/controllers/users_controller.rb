@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :user, only: [:show, :edit, :update, :destroy]
+  before_action :user, only: [:show, :likes, :following, :followers, :discover, :edit, :update, :destroy]
 
   def index
     @photos = Photo.where(owner_id: current_user.id)
@@ -9,12 +9,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by!(username: params.fetch(:username))
   end
 
   def likes
-    @user = User.find_by!(username: params.fetch(:username))
-    
+  end
+
+  def following
+  end
+
+  def followers
   end
 
   def create
