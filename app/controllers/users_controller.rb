@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :user, only: [ :show, :likes, :following, :followers, :discover, :edit, :update, :destroy, :feed]
 
+
   def index
     @photos = Photo.where(owner_id: current_user.id)
     username = current_user.username
@@ -54,6 +55,8 @@ class UsersController < ApplicationController
   def discover
   end
 
+  def feed
+    render "users/feed"
   end
 
   def destroy

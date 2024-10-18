@@ -10,11 +10,19 @@ Rails.application.routes.draw do
   resources :likes
   resources :photos
   
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 2cdf639 (fixing routes)
   get "/users/:id" => "users#edit"
   
   get "/:username/liked" => "users#likes", as: :liked
   
+<<<<<<< HEAD
   get "/:username/followers" => "users#followers", as: :followers
+=======
+  get "/:username/followers" => "users#followers"
+>>>>>>> 2cdf639 (fixing routes)
   
   get "/:username/following" => "users#following", as: :following
   
@@ -23,9 +31,12 @@ Rails.application.routes.draw do
   get "/:username/discover" => "users#discover", as: :discover
   
   get "/:username" => "users#show", as: :user
+<<<<<<< HEAD
 =======
   resources :photos
 >>>>>>> f197ce4 (fix routes)
+=======
+>>>>>>> 2cdf639 (fixing routes)
 
   get "/users/:id" => "users#edit"
   
