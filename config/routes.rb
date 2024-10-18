@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   
   get "/:username" => "users#show", as: :user
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   resources :photos
 >>>>>>> f197ce4 (fix routes)
@@ -51,4 +52,6 @@ Rails.application.routes.draw do
   get "/:username/discover" => "users#discover", as: :discover
   
   get "/:username" => "users#show", as: :user
+=======
+>>>>>>> 70d12e0 (add photo working)
 end
