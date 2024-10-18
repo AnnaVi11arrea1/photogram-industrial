@@ -32,13 +32,13 @@ class User < ApplicationRecord
 
   has_many :liked_photos, through: :likes, source: :photo
   
-  has_many :sent_follow_requests, foreign_key: "sender_id", class_name: "Follower", dependent: :destroy
+  has_many :sent_follow_requests, foreign_key: "sender_id", class_name: "FollowRequest", dependent: :destroy
 
-  has_many :received_follow_requests, foreign_key: "recepient_id", class_name: "Follower"
+  has_many :received_follow_requests, foreign_key: "recepient_id", class_name: "FollowRequest"
 
-  has_many :accepted_sent_follow_requests, -> { accepted }, foreign_key: "sender_id", class_name: "Follower"
+  has_many :accepted_sent_follow_requests, -> { accepted }, foreign_key: "sender_id", class_name: "FollowRequest"
 
-  has_many :accepted_received_follow_requests, -> { accepted }, foreign_key: "recepient_id", class_name: "Follower"
+  has_many :accepted_received_follow_requests, -> { accepted }, foreign_key: "recepient_id", class_name: "FollowRequest"
 
   has_many :comments, foreign_key: "author_id"
 
@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
   has_many :leaders, through: :sent_follow_requests, source: :recepient
 
-  has_many :followers, through: :accepted_received_follow_requests, source: :sender
+  has_many :follow_requests, through: :accepted_received_follow_requests, source: :sender
 
   has_many :feed, through: :leaders, source: :own_photos
 
@@ -56,17 +56,17 @@ class User < ApplicationRecord
 
   # validates :username, presence: true, uniqueness: true
 
-#   def follower
-#     followers = Follower.where(:id => :sender_id).where(:status => "accepted")
-#     if followers == 0
+#   def follow_request
+#     follow_requests = FollowRequest.where(:id => :sender_id).where(:status => "accepted")
+#     if follow_requests == 0
 #       return "0"
 #     else
-#       return followers
+#       return follow_requests
 #     end
 #   end
 
 #   def pending 
-#     pending_follows = Follower.where(:id => :sender_id).where(:status => "pending")
+#     pending_follows = FollowRequest.where(:id => :sender_id).where(:status => "pending")
 #     if pending_follows == 0
 #       return "0"
 #     else
@@ -75,7 +75,7 @@ class User < ApplicationRecord
 #   end
 
 #   def following
-#     following = Follower.where(:id => :receiver_id).where(:status => "accepted")
+#     following = FollowRequest.where(:id => :receiver_id).where(:status => "accepted")
 #     if following == 0
 #       return "0"
 #     else

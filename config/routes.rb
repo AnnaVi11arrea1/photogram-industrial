@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :comments
-  resources :followers
+  resources :follow_requests
   resources :likes
   resources :photos
   
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   get "/:username/liked" => "users#likes", as: :liked
   
-  get "/:username/followers" => "users#followers", as: :followerss 
+  get "/:username/followers" => "users#followers", as: :followers
   
   get "/:username/following" => "users#following", as: :following
   

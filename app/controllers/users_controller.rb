@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :user, only: [ :show, :likes, :following, :followers, :discover, :edit, :update, :destroy, :feed]
+  before_action :user, only: [ :show, :likes, :following, :follow_requests, :discover, :edit, :update, :destroy, :feed]
 
 
   def index
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def following
   end
 
-  def followers
+  def follow_requests
   end
 
   def create
