@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get "/:username/discover" => "users#discover", as: :discover
   
   get "/:username" => "users#show", as: :user
+
+  
 end
