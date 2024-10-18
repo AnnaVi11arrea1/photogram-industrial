@@ -1,0 +1,11 @@
+<% @user.feed.each do |photo| %>
+  <div class="card mb-4">
+    <%= image_tag photo.image, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= photo.owner.username %></h5>
+      <p class="card-text"><%= photo.caption %></p>
+           <p class="card-text"><%= photo.comments %></p>
+      <p class="card-text"><small class="text-muted"><%= time_ago_in_words(photo.created_at) %> ago</small></p>
+    </div>
+  </div>
+<% end %>

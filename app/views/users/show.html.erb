@@ -3,11 +3,11 @@
     <h1><%= @user.username %></h1>
 
     <ul class="nav nav-pills nav-justified">
+<!--      <li class="nav-item">-->
+        <%#= link_to "Posts", user_path(@user.username), class: "nav-link" %>
+<!--      </li>-->
       <li class="nav-item">
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Liked photos", likes_path(@user.username), class: "nav-link" %>
+        <%= link_to "Liked photos", liked_path(@user.username), class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Followers", followers_path(@user.username), class: "nav-link" %>
