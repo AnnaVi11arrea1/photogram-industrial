@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-   root "photos#index"
+  root "photos#index"
 
   devise_for :users
 
+  root "photos#index"
 
+  devise_for :users
 
-
-  
+  resources :likes
   resources :comments
   resources :follow_requests
   resources :likes
