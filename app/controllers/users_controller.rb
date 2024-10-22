@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-<<<<<<< HEAD
   before_action :user, only: [ :show, :likes, :following, :followers, :discover, :edit, :update, :destroy, :feed]
-
-=======
-  before_action :user, only: [:show, :edit, :update, :destroy]
->>>>>>> ff41137 (created users_controller)
 
   def index
     @photos = Photo.where(owner_id: current_user.id)
@@ -14,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
   end
 
   def likes
@@ -60,11 +54,6 @@ class UsersController < ApplicationController
   def discover
   end
 
-  def feed
-<<<<<<< HEAD
-    render "users/feed"
-=======
->>>>>>> ff41137 (created users_controller)
   end
 
   def destroy
@@ -82,10 +71,6 @@ class UsersController < ApplicationController
   end
   
   def user
-<<<<<<< HEAD
     @user = User.find_by!(username: params.fetch(:username))
-=======
-    @user = User.where(:username => params[:username]).first
->>>>>>> ff41137 (created users_controller)
   end
 end
