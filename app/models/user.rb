@@ -54,8 +54,8 @@ class User < ApplicationRecord
 
   has_many :discover, through: :leaders, source: :liked_photos
 
-  # validates :username, presence: true, uniqueness: true
 
+<<<<<<< HEAD
 
 
 #   def follow_request
@@ -84,4 +84,7 @@ class User < ApplicationRecord
 #       return following
 #     end
 #   end
+=======
+
+>>>>>>> 2eedd18 (removed comments from controllers and models)
 end
