@@ -3,27 +3,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :likes
   resources :comments
   resources :follow_requests
   resources :photos
-  
-  get "/users/:id" => "users#edit"
-  
-  get "/:username/liked" => "users#likes", as: :liked
 
-  get "/:username/followers" => "users#followers", as: :followers
+  get ":username/likes" => "users#likes"
+  get ":username/feed" => "users#feed"
+  get ":username/followers" => "users#followers"
+  get ":username/following" => "users#following"
 
-  get "/:username/followers" => "users#followers"
-
-  get "/:username/followers" => "users#followers", as: :followers
-  
-  get "/:username/following" => "users#following", as: :following
-  
-  get "/:username/feed" => "users#feed", as: :feed
-  
-  get "/:username/discover" => "users#discover", as: :discover
-  
-  get "/:username" => "users#show", as: :user
+  get ":username" => "users#show", as: :user
 
 end
