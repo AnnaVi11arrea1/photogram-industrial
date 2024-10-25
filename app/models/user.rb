@@ -55,36 +55,4 @@ class User < ApplicationRecord
   has_many :discover, through: :leaders, source: :liked_photos
 
 
-<<<<<<< HEAD
-
-
-#   def follow_request
-#     follow_requests = FollowRequest.where(:id => :sender_id).where(:status => "accepted")
-#     if follow_requests == 0
-#       return "0"
-#     else
-#       return follow_requests
-#     end
-#   end
-
-#   def pending 
-#     pending_follows = FollowRequest.where(:id => :sender_id).where(:status => "pending")
-#     if pending_follows == 0
-#       return "0"
-#     else
-#       return pending_follows
-#     end
-#   end
-
-#   def following
-#     following = FollowRequest.where(:id => :receiver_id).where(:status => "accepted")
-#     if following == 0
-#       return "0"
-#     else
-#       return following
-#     end
-#   end
-=======
-
->>>>>>> 2eedd18 (removed comments from controllers and models)
 end
