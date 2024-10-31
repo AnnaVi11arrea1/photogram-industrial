@@ -1,24 +1,36 @@
+<!--<div><%#= @user.photos.first.image %></div>-->
 <div class="row">
   <div class="col-md-6 offset-3">
     <h1><%= @user.username %></h1>
-
-    <ul class="nav nav-pills nav-justified">
-      <li class="nav-item">
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Liked photos", liked_path(@user.username), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Followers", follow_requests_path(@user.username), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Following", follow_requests_path(@user.username), class: "nav-link" %>
-      </li>
-    </ul>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-row nav-link">
+        <div class="pe-1 fw-bold text-primary"><%= current_user.accepted_received_follow_requests.count %></div>
+        <div><%= link_to "Followers", follow_requests_path(@user.username) %></div>
+      </div>
+      <div class="d-flex flex-row nav-link">
+        <div class="pe-1 fw-bold text-primary"><%= current_user.accepted_sent_follow_requests.count %></div>
+        <div><%= link_to "Following", follow_requests_path(@user.username) %></div>
+      </div>
+      <div class="d-flex flex-row nav-link">
+        <div class="pe-1 fw-bold text-primary"><%= current_user.received_follow_requests.count %></div>
+        <div><%= link_to "Pending", follow_requests_path(@user.username) %></div>
+      </div>
+    </div>
+      <div>
+        <button type="submit" class="btn disabled w-100">Follow</button>
+      </div>
+    <div>
+      <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+          <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Liked photos", liked_path(@user.username), class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<% @user.own_photos.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
-<% end %>
+  <% @user.own_photos.each do |photo| %>
+    <%= render "photos/photo", photo: photo %>
+  <% end %>

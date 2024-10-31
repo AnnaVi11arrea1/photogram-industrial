@@ -1,27 +1,5 @@
-  
-<div class="card" style="width: 18rem;">
-  <img src="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" class="card-img-top" alt="...">
 
-  <div>
-    <div><%= current_user.username %></div>
-  </div>
 
-  <div>
-    <div class="card-body">
-      <p class="card-text">FollowRequests</p>
-      <p class="card-text"><%= current_user.follow_request.count %></p>
-    </div>
-    <div class="card-body">
-      <p class="card-text">Pending</p>
-      <p class="card-text"><%= current_user.pending.count %></p>
-    </div>
-    <div class="card-body">
-      <p class="card-text">Following</p>
-      <p class="card-text"><%= current_user.following.count %></p>
-    </div>
-  </div>
-
-  <button type="submit">Follow</button>
 
 <% if current_user.email present? %>
 <p><a href="<% current_user.email %>"><%= current_user.email %></p>
