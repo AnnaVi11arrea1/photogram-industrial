@@ -62,7 +62,7 @@ task sample_data: :environment do
         image: "https://robohash.org/#{rand(9999)}"
       )
 
-      user.follow_requests.each do |follow_request|
+      user.followers.each do |follow_request|
         if rand < 0.5 && !photo.fans.include?(follow_request)
           photo.fans << follow_request
         end
