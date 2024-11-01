@@ -76,9 +76,9 @@ task sample_data: :environment do
       end
     end
   end
-  p "There are now #{User.count} follows requestion."
-  p "There are now #{FollowRequest.count} follows requestion."
-  p "There are now #{Photo.count} follows requestion."
-  p "There are now #{Like.count} follows requestion."
-  p "There are now #{Comment.count} follows requestion."
+  p "There are now #{User.count} users."
+  p "There are now #{FollowRequest.count} follow requests."
+  p "There are now #{Photo.count} photos."
+  p "There are now #{Like.count} likes."
+  p "There are now #{Comment.count} comments."
 end
