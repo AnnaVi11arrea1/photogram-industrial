@@ -1,12 +1,17 @@
-<div id="<%= dom_id like %>">
-  <p>
-    <strong>Fan:</strong>
-    <%= like.fan_id %>
-  </p>
+<div id="<%= dom_id like %>" class="row">
+  <div class="col-md-6 offset-3">
+    <ul class="nav nav-pills nav-justified">
 
-  <p>
-    <strong>Photo:</strong>
-    <%= like.photo_id %>
-  </p>
+      <% like.each do |liked| %>
+        <li class="nav-item">
+          <strong>Fan:</strong>
+          <%= liked.fan_id %>
+        <div class="card-img-top">
+          <strong>Photo:</strong>
+          <%= liked.photo_id %>
+          </div>
+        </li>
+      <% end %>
 
-</div>
+    </div>
+  </div>

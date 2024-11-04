@@ -29,16 +29,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :photos, class_name: "Photo", foreign_key: "owner_id"
-
-  has_many :liked_photos, through: :likes, source: :photo
   
-  has_many :sent_follow_requests, foreign_key: "sender_id", class_name: "Follower", dependent: :destroy
+  has_many :sent_follow_requests, foreign_key: "sender_id", class_name: "FollowRequest", dependent: :destroy
 
-  has_many :received_follow_requests, foreign_key: "recepient_id", class_name: "Follower"
+  has_many :received_follow_requests, foreign_key: "recepient_id", class_name: "FollowRequest"
 
-  has_many :accepted_sent_follow_requests, -> { accepted }, foreign_key: "sender_id", class_name: "Follower"
+  has_many :accepted_sent_follow_requests, -> { accepted }, foreign_key: "sender_id", class_name: "FollowRequest"
 
-  has_many :accepted_received_follow_requests, -> { accepted }, foreign_key: "recepient_id", class_name: "Follower"
+  has_many :accepted_received_follow_requests, -> { accepted }, foreign_key: "recepient_id", class_name: "FollowRequest"
 
   has_many :comments, foreign_key: "author_id"
 
@@ -50,10 +48,11 @@ class User < ApplicationRecord
 
   has_many :followers, through: :accepted_received_follow_requests, source: :sender
 
+  has_many :liked_photos, through: :likes, source: :photo
+
   has_many :feed, through: :leaders, source: :own_photos
 
   has_many :discover, through: :leaders, source: :liked_photos
-
 
 
 end

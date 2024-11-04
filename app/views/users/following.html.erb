@@ -1,0 +1,7 @@
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <% @user.followers.each do |follower| %>
+      <li><%= follower.username %></li>
+    <% end %>
+  </div>
+</div>

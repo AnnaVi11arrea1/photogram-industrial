@@ -1,7 +1,13 @@
 <div class="row mb-4">
   <div class="col-md-6 offset-md-3">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <% @user.followers.each do |follower| %>
+      <li><%= follower.username %></li>
+    <% end %>
+=======
     <div class="card">
-      <%= image_tag photo.image, class: "card-img-top" %>
+      <%= image_tag current_user.image, class: "card-img-top" %>
       <div class="card-body">
         <h5 class="card-title"><%= photo.owner.username %></h5>
         <p class="card-text"><%= photo.caption %></p>
@@ -25,6 +31,11 @@
         <%= render "comments/form", comment: photo.comments.build %>
       </div>
     </div>
+>>>>>>> f197ce4 (fix routes)
+=======
+    <% @user.followers.each do |follower| %>
+      <li><%= follower.username %></li>
+    <% end %>
+>>>>>>> 336ba4b (updated names continued)
   </div>
 </div>
-

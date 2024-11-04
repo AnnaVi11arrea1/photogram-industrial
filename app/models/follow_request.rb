@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: followers
+# Table name: follow_requests
 #
 #  id           :bigint           not null, primary key
 #  status       :string           default("pending")
@@ -9,7 +9,7 @@
 #  recepient_id :integer
 #  sender_id    :integer
 #
-class Follower < ApplicationRecord
+class FollowRequest < ApplicationRecord
 
   belongs_to :recepient, class_name: "User"
   belongs_to :sender, class_name: "User"

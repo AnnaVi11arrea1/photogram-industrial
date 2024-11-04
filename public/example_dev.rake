@@ -46,15 +46,15 @@ task example_sample_data: :environment do
         image: "https://robohash.org/#{rand(9999)}"
       )
 
-      user.followers.each do |follower|
-        if rand < 0.5 && !photo.fans.include?(follower)
-          photo.fans << follower
+      user.follow_requests.each do |follow_request|
+        if rand < 0.5 && !photo.fans.include?(follow_request)
+          photo.fans << follow_request
         end
 
         if rand < 0.25
           photo.comments.create(
             body: Faker::Quote.jack_handey,
-            author: follower
+            author: follow_request
           )
         end
       end

@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
-    @followers
+    @follow_requests
   end
 
   def show
