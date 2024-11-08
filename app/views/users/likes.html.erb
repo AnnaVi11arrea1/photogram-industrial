@@ -1,23 +1,4 @@
-<div class="d-flex row mb-4">
-  <div class="col-md-6 offset-3">
-    <h1><%= @user.username %></h1>
-    <div class="d-flex justify-content-between">
-      <div class="d-flex flex-row nav-link">
-        <div><%= link_to "Followers", follow_requests_path(@user.username) %></div>
-      </div>
-      <div class="d-flex flex-row nav-link">
-        <div><%= link_to "Following", follow_requests_path(@user.username) %></div>
-      </div>
-      <div class="d-flex flex-row nav-link">
-        <div><%= link_to "Pending", follow_requests_path(@user.username) %></div>
-      </div>
-      <div class="d-flex flex-row nav-link">
-        <div><%= link_to "Posts", user_path(@user.username) %></div>
-      </div>
-      <div class="d-flex flex-row nav-link">
-        <div><%= link_to "Liked photos", liked_path(@user.username) %></div>
-      </div>
-    </div>
+<%= render "users/tabs", user: current_user %>
 
     <div>
       <% @user.liked_photos.each do |photo| %>

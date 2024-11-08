@@ -1,9 +1,9 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
 
+
   def index
     @photos = Photo.all
-    @follow_requests
   end
 
   def show

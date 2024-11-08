@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :user, only: [ :show, :likes, :following, :followers, :discover, :edit, :update, :destroy, :feed]
+  before_action :user, only: [ :show, :likes, :following, :followers, :discover, :edit, :update, :destroy, :feed, :photos]
 
 
   def index
@@ -14,6 +14,10 @@ class UsersController < ApplicationController
 
   def likes
     render "user/likes" => "users#likes"
+  end
+
+  def photos
+    render "users/photos" => "users#photos"
   end
 
   def following
