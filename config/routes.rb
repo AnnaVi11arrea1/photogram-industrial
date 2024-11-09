@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
   get "/:username/discover" => "users#discover", as: :discover
 
-  get "/:username" => "users#show", as: :user
+  get "/:username/photos" => "users#photos", as: :photos
+  
+  get "/:username/show" => "users#show", as: :show
+  
+
 
 end

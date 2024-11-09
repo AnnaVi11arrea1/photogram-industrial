@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @photos = Photo.where(owner_id: @user.id)
+    render "users/show"
   end
 
   def likes
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def photos
-    render "users/photos" => "users#photos"
+    render "user/photos"
   end
 
   def following
